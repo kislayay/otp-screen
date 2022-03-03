@@ -1,0 +1,215 @@
+import React, { useRef, useState } from "react";
+import {Text,StyleSheet,View,Image,TextInput, Button} from "react-native";
+
+const Otp = () => {
+  const pin1Ref = useRef(null);
+  const pin2Ref = useRef(null);
+  const pin3Ref = useRef(null);
+  const pin4Ref = useRef(null);
+  const pin5Ref = useRef(null);
+  const pin6Ref = useRef(null);
+
+  const[pin1,setPin1] = useState("");
+  const[pin2,setPin2] = useState("");
+  const[pin3,setPin3] = useState("");
+  const[pin4,setPin4] = useState("");
+  const[pin5,setPin5] = useState("");
+  const[pin6,setPin6] = useState("");
+
+  return (
+
+<View style = {styles.container}>
+<Text style = {styles.phone}>Verify Your Phone Number</Text>
+<Image source={require('../project/image/enter-otp-concept-illustration_114360-7897.jpg')} style = {styles.pic} />
+<Text style={styles.code}>Enter Your Code</Text>
+<Text style={styles.sms1}>Please use the Code sent to your registered</Text>
+<Text style={styles.sms}>phone number via SMS to create your Ferret</Text>
+<Text style={styles.sms}>account</Text>
+<View style={{flex:1,justifyContent:"center",alignItems:"center",flexDirection:"row",justifyContent:"space-around",marginTop:50}}>
+<View style={styles.TextInputView}>
+<TextInput
+ref={pin1Ref}
+keyboardType={'number-pad'}
+
+maxLength={1}
+onChange={(pin1)=> {
+  setPin1(pin1);
+  if(pin1 !== "") {
+    pin2Ref.current.focus();
+  }
+}}
+style={styles.TextInputText}
+/>
+</View>
+<View style={styles.TextInputView}>
+<TextInput 
+ref={pin2Ref}
+keyboardType={'number-pad'} 
+maxLength={1}
+onChange={(pin2)=> {
+  setPin2(pin2);
+  if(pin2 !== "") {
+    pin3Ref.current.focus();
+  }
+}}
+style={styles.TextInputText}
+/>
+</View>
+<View style={styles.TextInputView}>
+<TextInput
+ref={pin3Ref}
+keyboardType={'number-pad'} 
+maxLength={1}
+onChange={(pin3)=> {
+  setPin3(pin3);
+  if(pin3 !== "") {
+    pin4Ref.current.focus();
+  }
+}}
+style={styles.TextInputText}
+ />
+</View>
+<View style={styles.TextInputView}>
+<TextInput
+ref={pin4Ref}
+keyboardType={'number-pad'} 
+maxLength={1}
+onChange={(pin4)=> {
+  setPin4(pin4);
+  if(pin4 !== "") {
+    pin5Ref.current.focus();
+  }
+}}
+style={styles.TextInputText}
+ />
+</View>
+<View style={styles.TextInputView}>
+<TextInput
+ref={pin4Ref}
+keyboardType={'number-pad'} 
+
+maxLength={1}
+onChange={(pin5)=> {
+  setPin5(pin5);
+  if(pin5 !== "") {
+    pin6Ref.current.focus();
+  }
+}}
+style={styles.TextInputText}
+ />
+</View>
+<View style={styles.TextInputView}>
+<TextInput
+ref={pin4Ref}
+keyboardType='number-pad'
+maxLength={1}
+onChange={(pin6)=> {
+  setPin6(pin6);
+}}
+style={styles.TextInputText}
+ />
+</View>
+</View>
+
+<Text style={styles.txt1}>Didn't receive the code?<Text style={{color:"#008000"}}>Resend SMS</Text>
+</Text>
+
+<View style={styles.buttonContainer}>
+          <Button
+            
+            title="Verify and Proceed"
+            color="#689f38" 
+            
+          />
+          </View>
+
+
+
+
+
+ 
+</View>
+  );
+};
+
+
+
+const styles = StyleSheet.create({
+container: {
+  backgroundColor:"#fffaf0",
+},
+phone: {
+ 
+  alignItems:"center",
+  justifyContent:"center",
+  textAlign: "center",
+  fontWeight: "bold",
+  fontSize: 18,
+  
+},
+pic: {
+ 
+  alignItems:"center",
+  marginLeft:140,
+  height: 170,
+  width: 140,
+  marginTop: 40,
+},
+code:{
+  textAlign:"center",
+  fontWeight:"bold",
+  fontSize:25,
+  marginTop: 20,
+},
+sms: {
+textAlign:"center",
+fontSize:16,
+
+},
+sms1:{
+marginTop:20,
+textAlign:"center",
+fontSize:16,
+},
+TextInputView: {
+  padding: 10,
+   margin: 80,
+    borderWidth: 1.6,
+    borderColor: "green",
+    height: 45,
+    width: 35,
+    textAlign: 'center',
+   
+    
+  
+ 
+  
+},
+TextInputText:{
+  fontSize: 30,
+  margin: 50,
+ 
+  
+},
+txt1: {
+  textAlign:"center",
+  marginTop: 45,
+
+},
+buttonContainer: {
+  margin: 20,
+ marginTop: 130,
+ borderRadius: 30,
+ paddingBottom: 50,
+ 
+ 
+
+},
+
+
+
+
+});
+
+export default Otp;
+
